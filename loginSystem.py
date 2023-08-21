@@ -1,14 +1,13 @@
 # simple login system with dictionary
 
 database = {}
-constantMessage1 = 'Username  '#i wanted to use a constant but had no idea what to do
-#checks if username is in dattabase
-def checkingCaseOfUserNameInDataBase(x):
+
+def checker(x):
     return x in database.keys()
 #for login
-def fun1():
-    x = input(constantMessage1)
-    if not checkingCaseOfUserNameInDataBase(x):
+def login():
+    x = input("Username:")
+    if not checker(x):
         return 0
     y = input("Password: ")
     if y == database[x]["password"]:
@@ -17,8 +16,8 @@ def fun1():
         return -1
 #for register
 def fun2():
-    x = input(constantMessage1)
-    if checkingCaseOfUserNameInDataBase(x):
+    x = input("Username:")
+    if checker(x):
         return -1
     y = input("New Password: ")
     z = input("Now enter your secrete phrase for safekeeping: ")
@@ -26,8 +25,8 @@ def fun2():
     return 1
 def printingOutAllChoicesAndReturnUserChoice():
     print("\nWhat would you like to do?")
-    print("1) ")
-    print("2) ")
+    print("1) Login ")
+    print("2) Register")
     print("3) Exit\n")
     v = int(input("> "))
     print("")
@@ -48,7 +47,7 @@ while True: #loop runs forever till break
                 print(database[s]["secret"])
             continue
         case 2:
-            s=fun1()
+            s=login()
             if s == 1:
                 print("\nSuccessfuly Registered!")
             elif s==-1:
